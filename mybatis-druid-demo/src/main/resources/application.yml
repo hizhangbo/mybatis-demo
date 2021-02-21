@@ -1,0 +1,51 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/ocean?useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      max-active: 10
+      min-idle: 5
+      max-wait: 5000
+      initial-size: 5
+      validation-query: select 1
+      filters: stat,wall,log4j2
+      connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=300
+      timeBetweenLogStatsMillis: 30000
+      stat-view-servlet:
+        enabled: true
+        login-username: admin
+        login-password: admin
+        resetEnable: false
+        allow:
+        deny:
+        url-pattern: "/druid/*"
+      filter:
+        stat:
+          enabled: true
+          slow-sql-millis: 1000
+          logSlowSql: true
+        wall:
+          enabled: true
+          config:
+            drop-table-allow: false
+      web-stat-filter:
+        enabled: true
+        url-pattern: "/druid/**"
+        exclusions: '*.js,*.gif,*.jpg,*.jpeg,*.png,*.css,*.ico,*.jsp,/druid/*'
+        principal-session-name: ''
+        session-stat-enable: true
+        session-stat-max-count: 1000
+      aop-patterns: io.github.hizhangbo.*
+
+mybatis:
+  type-handlers-package: io.github.hizhangbo.handler
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  type-aliases-package: io.github.hizhangbo.entity
+#  configuration:
+#    map-underscore-to-camel-case: true # 驼峰命名映射
+
+#logging:
+#  config: classpath:log4j2.xml
