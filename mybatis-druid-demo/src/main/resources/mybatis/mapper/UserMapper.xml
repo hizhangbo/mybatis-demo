@@ -13,7 +13,7 @@
         SELECT * FROM tmp_user
     </select>
 
-    <insert id="insert" parameterType="io.github.hizhangbo.entity.User">
+    <insert id="insert" parameterType="io.github.hizhangbo.entity.User" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO tmp_user(name,gender) VALUES(#{name},#{gender})
     </insert>
 </mapper>

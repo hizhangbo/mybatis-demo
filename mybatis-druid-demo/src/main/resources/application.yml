@@ -13,7 +13,7 @@ spring:
       validation-query: select 1
       filters: stat,wall,log4j2
       connectionProperties: druid.stat.mergeSql\=true;druid.stat.slowSqlMillis\=300
-      timeBetweenLogStatsMillis: 30000
+#      timeBetweenLogStatsMillis: 30000
       stat-view-servlet:
         enabled: true
         login-username: admin
