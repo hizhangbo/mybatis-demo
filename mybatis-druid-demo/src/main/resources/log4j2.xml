@@ -28,7 +28,7 @@
             <ThresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>
             <PatternLayout pattern="[%d{HH:mm:ss:SSS}] [%p] - %l - %m%n"/>
             <Policies>
-                <TimeBasedTriggeringPolicy/>
+                <TimeBasedTriggeringPolicy />
                 <SizeBasedTriggeringPolicy size="${splitSize}"/>
             </Policies>
             <DefaultRolloverStrategy max="${fileNum}"/>
