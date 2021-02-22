@@ -23,7 +23,7 @@ public class ErrorJob {
 
     @Scheduled(cron = "* * * * * ?")
     public void error() {
-        List<User> users = userAnnoMapper.getAll();
-        log.error(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + " => " + users);
+//        List<User> users = userAnnoMapper.getAll();
+        log.error(LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) + " => ");
     }
 }
