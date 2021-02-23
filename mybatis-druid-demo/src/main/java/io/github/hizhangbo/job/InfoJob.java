@@ -11,7 +11,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-@Slf4j
+// topic 对应logger标签的name
+@Slf4j(topic = "info-log")
 @Component
 @RequiredArgsConstructor
 public class InfoJob {

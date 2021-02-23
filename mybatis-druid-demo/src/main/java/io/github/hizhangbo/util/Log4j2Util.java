@@ -1,6 +1,5 @@
 package io.github.hizhangbo.util;
 
-import com.sun.corba.se.impl.oa.poa.Policies;
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -92,7 +91,6 @@ public class Log4j2Util {
 
         configuration.add(loggerComponentBuilder);
         ctx.updateLoggers();
-//        Configurator.initialize(configuration.build());
     }
 
     private static void addFileAppender() {
@@ -125,6 +123,8 @@ public class Log4j2Util {
     private static void addAppender() {
         addConsoleAppender();
         addFileAppender();
+        // 自定义
+        addRollingFileAppender("rollingFile", "/rolling.log", Log4j2Util.class);
     }
 
     public static void printConfiguration() {
@@ -138,7 +138,6 @@ public class Log4j2Util {
     public static void main(String[] args) {
         init();
         printConfiguration();
-        addRollingFileAppender("rollingFile", "/rolling.log", Log4j2Util.class);
 
         Logger logger = LogManager.getLogger(Log4j2Util.class);
         logger.debug("This is a Debug Message!");
