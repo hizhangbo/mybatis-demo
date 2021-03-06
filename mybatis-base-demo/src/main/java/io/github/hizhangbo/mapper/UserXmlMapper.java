@@ -13,5 +13,5 @@ import java.util.List;
 public interface UserXmlMapper {
 
     List<User> getAll();
-    void insert(User user);
+    int insert(User user);
 }

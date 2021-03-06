@@ -24,8 +24,14 @@ public class UserXmlMapperTest {
         System.out.println(users);
     }
 
+    /**
+     * 测试 unique 索引新增失败
+     * 新增返回主键，失败则为null
+     */
     @Test
     public void insert() {
-        userXmlMapper.insert(User.builder().name("Larry").gender(User.Gender.male).build());
+        User user = User.builder().name("Kobe").gender(User.Gender.male).build();
+        userXmlMapper.insert(user);
+        System.out.println("user id: " + user.getId());
     }
 }
